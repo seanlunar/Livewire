@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Calculator;
 use App\Livewire\TodoList;
+use App\Livewire\ProductSearch;
 use App\Livewire\CascadingDopdown;
 
 
@@ -27,8 +28,10 @@ Route::get('/',function(){
     return view('welcome');
  });
 
- Route::get('/calculator', Calculator::class);
- Route::get('/todos', TodoList::class);
- Route::get('/cascading', CascadingDopdown::class);
+ Route::get('/calculator', Calculator::class)->name('calculator');
+ Route::get('/todo-list', TodoList::class)->name('todo-list');
+ Route::get('/cascading-dropdown', CascadingDopdown::class)->name('cascading-dropdown');
+ Route::get('/products', ProductSearch::class)->name('products');
+
 
 
