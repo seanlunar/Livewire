@@ -6,8 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\Calculator;
 use App\Livewire\TodoList;
 use App\Livewire\CascadingDopdown;
-
-
+use App\Livewire\Showblog;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,5 +31,6 @@ Route::get('/',function(){
  Route::get('/todos', TodoList::class);
  Route::get('/cascading', CascadingDopdown::class);
  Route::get('blogs', Blog::class);
+ Route::get('blogsingle/{blog}', Showblog::class);
 
 
