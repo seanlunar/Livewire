@@ -12,4 +12,9 @@ class Blog extends Model
         'title', 'body','user_id'
     ];
       public $timestamps = true;
+
+      public function likes()
+    {
+        return $this->belongsToMany(User::class, 'blog_likes')->where('like', 1);
+    }
 }

@@ -16,7 +16,7 @@
       </ul>
     </div>
   </nav>
-  <button type="button" class="btnp btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+  <button  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
     Open modal
   </button>
 
@@ -65,16 +65,24 @@
     <div class="row">
         @foreach ($blogs as $blog)
       <div class="col-sm-4 card ring-offset-2">
-        <h2>{{ $blog->title }}</h2>
+        <h2>{{ $blog->title }} {{ $blog->id }}</h2>
 
         <div class="fakeimg">Fake Image</div>
         <p>Some text..</p>
         <p>{{ $blog->body }}.</p>
 
 
-        <button wire:click='Like' >
-            like
-        </button>
+        {{-- <button class="btn {{ $likeStatus[$blog->id] ? 'btn-primary' : 'btn-secondary' }}" wire:click='toggleLike({{ $blog->id }})' >
+            like  {{ $blog->likes_count }}
+        </button> --}}
+
+        <button
+    class="btn {{ isset($likeStatus[$blog->id]) && $likeStatus[$blog->id] ? 'btn-primary' : 'btn-secondary' }}"
+    wire:click='toggleLike({{ $blog->id }})'
+>
+    Like {{ $blog->likes_count }}
+</button>
+
         <button wire:navigate href="/blogsingle/{{ $blog->id }}">
             read more
         </button>
